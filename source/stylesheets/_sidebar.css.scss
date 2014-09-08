@@ -1,35 +1,3 @@
-#header {
-  #header-image {
-    height: 175px;
-    width: 100%;
-    position: relative;
-
-    #header-image-inner {
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      width: 100%;
-      height: 100%;
-      background-color: white;
-      opacity: 0.5;
-
-      h1 {
-        font-size: 60px;
-      }
-
-      h4 {
-        font-family: LiberationItalic;
-        font-size: 35px;
-        padding-left: 5px;
-      }
-    }
-  }
-}
-
-body, .container-fluid, .row {
-  height: 100%;
-}
-
 @media (min-width: 992px) {
   .sidebar {
     position: fixed;
