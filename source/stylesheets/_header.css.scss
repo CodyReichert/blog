@@ -1,0 +1,90 @@
+#header {
+  #header-image {
+    height: 175px;
+    width: 100%;
+    position: relative;
+
+    #header-image-inner {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      opacity: 0.5;
+
+      h1 {
+        font-size: 60px;
+      }
+
+      h4 {
+        font-family: LiberationItalic;
+        font-size: 35px;
+        padding-left: 5px;
+      }
+    }
+  }
+}
+
+body, .container-fluid, .row {
+  height: 100%;
+}
+
+@media (min-width: 992px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: block;
+    padding: 0;
+    background-color: #CCCCCC;
+    background-image: url('/images/bear.jpeg');
+    background-size: cover;
+    background-position: 58% 35%;
+    text-align: center;
+
+    // box shadow
+    -webkit-box-shadow: 2px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    2px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         2px 0px 5px 0px rgba(50, 50, 50, 0.75);
+
+    .inner {
+      background-color: rgba(231, 231, 231, 0.7); 
+      width: 100%;
+      height: 100%;
+      padding-top: 25px;
+      h4 {
+        margin-top: 0px;
+        padding-top: 15px;
+      }
+    }
+    .rotate {
+      -webkit-transition-duration: 0.5s;
+      -moz-transition-duration: 0.5s;
+      -o-transition-duration: 0.5s;
+      transition-duration: 0.5s;
+
+      -webkit-transition-property: -webkit-transform;
+      -moz-transition-property: -moz-transform;
+      -o-transition-property: -o-transform;
+      transition-property: transform;
+
+      overflow:hidden;
+
+    }
+
+    .rotate:hover {
+      -webkit-transform:rotate(360deg);
+      -moz-transform:rotate(360deg);
+      -o-transform:rotate(360deg);
+    }
+
+    .lower {
+      position: absolute;
+      left: 15%;
+      bottom: 5%;
+    }
+  }
+}

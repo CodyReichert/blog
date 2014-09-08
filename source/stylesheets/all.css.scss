@@ -1,0 +1,29 @@
+@import "sass-bootstrap";
+@import "header";
+
+@font-face {
+  font-family: LiberationRegular;
+  src: url('LiberationSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: LiberationBold;
+  src: url('LiberationSans-Bold.ttf');
+}
+
+@font-face {
+  font-family: LiberationItalic;
+  src: url('LiberationSans-Italic.ttf');
+}
+
+html {
+  background-color: #fdfdfd;
+}
+
+body {
+  font-family: LiberationRegular !important;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: LiberationBold;
+}
