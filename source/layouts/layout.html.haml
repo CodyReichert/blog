@@ -17,27 +17,17 @@
     -# %hr
 
     #header
-      = partial(:header)
-    .col-md-3.sidebar
-      .inner
-        %img.rotate{ :src => 'images/medog.jpg',
-              :style => 'width: 150px;border-radius:50%;border: solid 2px #ddd;' }
-        %h1 Cody Reichert 
-        %p
-          %i web developer.
-        %p
-          %i startup bear.
-        .lower
-          %p
-            %a ReichertBrothers Haskell Consulting
-          %p
-            %a Archive of posts
-          %p 
-            %a How to get in Contact with me
-        
+      = partial(:sidebar)
 
-    #main.col-md-offset-3{:role => "main"}
-      = yield
+    .row-fluid
+      .col-md-9.col-md-offset-3.content
+        #contentupper
+          = partial(:contentupper)
+
+    .row-fluid
+      .col-md-9.col-md-offset-3.content
+        #main{:role => "main"}
+          = yield
 
     -# %aside
     -#   %h2 Recent Articles
