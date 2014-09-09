@@ -5,6 +5,7 @@
     "normalize-scss": "~2.1",
     "jquery": "~2.0",
     "sass-bootstrap": "~3.0",
-    "font-awesome": "~4.0.3"
+    "font-awesome": "~4.0.3",
+    "animate-css": "latest"
   }
 }
