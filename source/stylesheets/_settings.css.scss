@@ -1,22 +1,5 @@
-@font-face {
-  font-family: LiberationRegular;
-  src: url('LiberationSans-Regular.ttf');
-}
-
-@font-face {
-  font-family: LiberationBold;
-  src: url('LiberationSans-Bold.ttf');
-}
-
-@font-face {
-  font-family: LiberationItalic;
-  src: url('LiberationSans-Italic.ttf');
-}
-
-@font-face {
-  font-family: fontawesome-webfont;
-  src: url('font-awesome/fonts/fontawesome-webfont.ttf');
-}
+@import url(http://fonts.googleapis.com/css?family=Lato|Josefin+Slab:600);
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
 
 html {
   background-color: #fdfdfd;
@@ -28,8 +11,21 @@ body, .container-fluid, .row {
 
 body {
   font-family: LiberationRegular !important;
+  text-align: center;
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: LiberationBold;
+  font-family: 'Josefin Slab', serif;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+  font-size: 12pt;
+}
+
+a {
+  color: #336E7B;
+}
+a:hover {
+  color: #336E7B;
 }
