@@ -4,11 +4,15 @@
 
   .fa {
     font-size: 20px;
-    padding-left: 10px;
+    margin-left: 10px;
+    color: #333;
     -webkit-transition: color .2s ease-out;
     -moz-transition: color .2s ease-out;
     -o-transition: color .2s ease-out;
     transition: color .2s ease-out;
+  }
+  a:hover {
+    text-decoration: none !important;
   }
   .fa:hover {
     text-shadow: 1px 1px 1px #333;
