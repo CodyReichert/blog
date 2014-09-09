@@ -1,8 +1,10 @@
 .col-md-3.sidebar
   .inner
-    %img.rotate{ :src => 'images/medog.jpg',
+    %a{ :href => '/' }
+      %img.rotate{ :src => '/images/medog.jpg',
           :style => 'width: 150px;border-radius:50%;border: solid 2px #ddd;' }
-    %h1 Cody Reichert 
+    %h1
+      %a= link_to('Cody Reichert', '/')
     %p
       %i web developer.
     %p
