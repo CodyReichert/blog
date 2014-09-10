@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Blog Name</title>
+  <subtitle>Blog subtitle</subtitle>
+  <id>http://blog.url.com/</id>
+  <link href="http://blog.url.com/"/>
+  <link href="http://blog.url.com/feed.xml" rel="self"/>
+  <updated>2014-09-07T19:00:00-05:00</updated>
+  <author>
+    <name>Blog Author</name>
+  </author>
+  <entry>
+    <title>Creating a Blog with Middleman</title>
+    <link rel="alternate" href="http://blog.url.com/Creating-blog-in-middleman"/>
+    <id>http://blog.url.com/Creating-blog-in-middleman</id>
+    <published>2014-09-07T19:00:00-05:00</published>
+    <updated>2014-09-09T19:35:55-05:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;
+I've used several static site generators for projects in the past. As a matter
+of fact, our company website(link) is written with Hakyll, a static site generator
+written in Haskell. So when it came time to write this blog, I wanted to try something and
+I had a few requirements:
+&lt;/p&gt;
+&lt;div class='row'&gt;
+&lt;div class='col-xs-12 col-sm-6 col-md-6'&gt;
+&lt;ul style='padding-top:15px'&gt;
+&lt;li&gt;Easy integration with modern front end tools, like Bower.&lt;/li&gt;
+&lt;li&gt;Easy integration with alterntive markups, like Haml.&lt;/li&gt;
+&lt;li&gt;A minimalistic structure approach (don't tell me what to do!)&lt;/li&gt;
+&lt;li&gt;
+Good documentation. I didn't want to spend a lot of time learning
+how to walk again.
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class='col-xs-12 col-sm-6 col-md-6'&gt;
+&lt;img src='/images/middlemanbanner.jpg' style='border-radius: 4px;margin-bottom:10px;'&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+The obvious choice was Jekyll, but I didn't really want to go the Ruby route. Well,
+at least no until I found Middleman. Middleman is a static site generator written in
+Ruby, and I must say, it has been absolutely pleasant to work with. My main goal
+during this site's development was to focus more on the front-end code and
+toolkits, and Middleman lends itself to that generously.
+&lt;br&gt;
+&lt;br&gt;
+In this article I'll cover getting a statically generated blog up and running quickly using Middleman.
+&lt;/p&gt;
+&lt;h3&gt;Installing Middleman&lt;/h3&gt;
+&lt;p&gt;
+Getting started with Middleman is pretty straight forward. It is installed with the RubyGems
+package manager. Run the following:
+&lt;/p&gt;
+&lt;pre&gt;$ gem install middleman&lt;/pre&gt;
+&lt;h3&gt;Middleman Scaffolds&lt;/h3&gt;
+&lt;p&gt;
+Once you have that installed, there is a pretty nice scaffolding tool to create a new site skeleton.
+Running the following will get you started with a new Middleman skeleton site with all the default options.
+&lt;/p&gt;
+&lt;pre&gt;$ middleman init your_project_name
+$ bundle install&lt;/pre&gt;
+&lt;h3&gt;A New Middleman Scaffold&lt;/h3&gt;
+&lt;p&gt;
+By default, the middleman layout files are in Erb with CSS and JavaScript. One of my main goals
+during the site development was to get proficient with new tools. So Erb, CSS, and Javascript
+were dropped, and Haml, Sass, and CoffeeScript were brought in. I also included Bower to handle
+front end package management.
+&lt;br&gt;
+&lt;br&gt;
+When I first got started I created and deleted many different projects, naturally. When I got tired
+of change the Erb files to Haml, CSS to Sass, JavaScript to CoffeeScript, I decided to create a
+scaffold template so I cold generate a new project with these implementations already done. You can
+see the repo here. Basically, this is a quick start to getting a blog set up using Haml, Sass,
+CoffeeScript, and Bower. You can get started with it by cloning the repository:
+&lt;/p&gt;
+&lt;pre&gt;$ mkdir -p ~/.middleman/
+$ git clone https://github.com/CodyReichert/middleman-hamlsasscoffeeblog.git ~/.middleman/hamlsasscoffeeblog
+$ middleman init project_name --template=hamlsasscoffeeblog
+$ cd project_name
+$ bundle install &amp;&amp; bower install
+$ bundle exec middleman server&lt;/pre&gt;
+&lt;ol&gt;
+&lt;li&gt;The first command we run is to create the directory where Middleman looks for template scaffolds.&lt;/li&gt;
+&lt;li&gt;Next we clone the repo into our new directory&lt;/li&gt;
+&lt;li&gt;Now we initialize a new project. We pass the template flag to use the new scaffold we just installed&lt;/li&gt;
+&lt;li&gt;Move into our new project&lt;/li&gt;
+&lt;li&gt;We use `bundle install` to install the Gem dependencies, and `bower install` to install the front-end&lt;/li&gt;
+dependencies. (By default I use jQuery as an example, it has no dependents so you can keep or remove it)
+6. Run the middleman server
+&lt;/ol&gt;
+&lt;p&gt;
+Great! So you now you can navigate your browser to localhost:4567 and check out your new site.
+&lt;/p&gt;
+&lt;h3&gt;Configuration Options&lt;/h3&gt;
+&lt;p&gt;
+The config.rb file in the root directory of the project is where all the magic happens. Middleman comes with
+some great options out of the box including pretty URL's, build settings, and blog settings. Here's a few cool
+things you can do with your new blog.
+&lt;/p&gt;
+&lt;h4&gt;Blog Permalinks&lt;/h4&gt;
+&lt;p&gt;
+You can change your permalink very easily, and most of the work is done for you. Look for this line in your config:
+&lt;/p&gt;
+&lt;pre&gt;# blog permalink with no file extension
+blog.permalink = "{year}/{month}/{day}/{title}"
+# blog permalink with file extension
+blog.permalink = "{year}/{month}/{day}/{title}.html"&lt;/pre&gt;
+&lt;p&gt;
+You can set your permalinks using the interpolates variables. There are options for wether you are using file
+extensions or not.
+&lt;/p&gt;
+&lt;p&gt;
+This post is a work in progress. And I want to go over some of these topic in more detail. Check back for an
+updated post or shoot me an email.o
+&lt;/p&gt;
+&lt;h4&gt;Cody Reichert&lt;/h4&gt;
+
+</content>
+  </entry>
+</feed>

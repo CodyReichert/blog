@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+<title>
+Cody Reichert's Blog
+</title>
+<link href='/stylesheets/all.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div id='header'>
+<div class='col-md-3 sidebar'>
+<div class='inner'>
+<a href='/'>
+<img class='animated' id='rotate' src='/images/medog.jpg'>
+</a>
+<h1 class='slide-up'>
+<a><a href="/">Cody Reichert</a></a>
+</h1>
+<p>
+<i>web developer.</i>
+</p>
+<div class='lower'>
+<p>
+<a>
+<a target="_blank" href="http://reichertbrothers.com">Reichert Brothers Haskell Consulting</a>
+</a>
+</p>
+<p>
+<a>
+<a href="/archive.html">Archive of posts</a>
+</a>
+</p>
+<p>
+<a>
+<a href="mailto:cody@reichertbrothers.com">Email me</a>
+</a>
+</p>
+</div>
+</div>
+</div>
+
+</div>
+<div class='row-fluid'>
+<div class='col-md-9 col-md-offset-3 content'>
+<div id='contentupper'>
+<div class='row'>
+<a href="http://facebook.com/reichertbrothers"><span class='fa fa-facebook'></span>
+</a><a href="http://twitter.com/reichertbros"><span class='fa fa-twitter'></span>
+</a><a href="http://linkedin.com/company/reichertbrothers"><span class='fa fa-linkedin'></span>
+</a><a href="http://github.com/CodyReichert"><span class='fa fa-github'></span>
+</a><a href="mailto:cody@reichertbrothers.com"><span class='fa fa-envelope'></span>
+</a></div>
+<hr id='content-separator'>
+
+</div>
+</div>
+</div>
+<div class='row-fluid'>
+<div class='col-md-9 col-md-offset-3 content'>
+<div id='main' role='main'>
+<h1>
+<a href="/Creating-blog-in-middleman">Creating a Blog with Middleman</a>
+<small>Sep  8, '2014</small>
+</h1>
+<p><p>
+I've used several static site generators for projects in the past. As a matter
+of fact, our company website(link) is written with Hakyll, a static site generator
+written in Haskell. So when it came time to write this blog, I wanted to try something and
+I had a few requirements:
+</p>
+<div class='row'>
+<div class='col-xs-12 col-sm-6 col-md-6'>
+<ul style='padding-top:15px'>
+<li>Easy integration with modern front end tools, like Bower.</li>
+<li>Easy integration with alterntive markups, like Haml.</li>
+<li>A minimalistic structure approach (don't tell me what to do!)</li>
+<li>
+Good documentation. I didn't want to spend a lot of time learning
+how to walk again.
+</li>
+</ul>
+</div>
+<div class='col-xs-12 col-sm-6 col-md-6'>
+<img src='/images/middlemanbanner.jpg' style='border-radius: 4px;margin-bottom:10px;'>
+</div>
+</div>
+<p>
+The obvious choice was Jekyll, but I didn't really want to go the Ruby route. Well,
+at least no until I found Middleman. Middleman is a static site generator written in
+Ruby, and I must say, it has been absolutely pleasant to work with. My main goal
+during this site's development was to focus more on the front-end code and
+toolkits, and Middleman lends itself to that generously.
+<br>
+<br>
+In this article I'll cover getting a statically generated blog up and running quickly using Middleman.
+</p>
+<h3>Installing Middleman</h3>
+<p>
+Getting started with Middleman is pretty straight forward. It is installed with the RubyGems
+package manager. Run the following:
+</p>
+<pre>$ gem install middleman</pre>
+<h3>Middleman Scaffolds</h3>
+<p>
+Once you have that installed, there is a pretty nice scaffolding tool to create a new site skeleton.
+Running the following will get you started with a new Middleman skeleton site with all the default options.
+</p>
+<pre>$ middleman init your_project_name
+$ bundle install</pre>
+<h3>A New Middleman Scaffold</h3>
+<p>
+By default, the middleman layout files are in Erb with CSS and JavaScript. One of my main goals
+during the site development was to get proficient with new tools. So Erb, CSS, and Javascript
+were dropped, and Haml, Sass, and CoffeeScript were brought in. I also included Bower to handle
+front end package management.
+<br>
+<br>
+When I first got started I created and deleted many different projects, naturally. When I got tired
+of change the Erb files to Haml, CSS to Sass, JavaScript to CoffeeScript, I decided to create a
+scaffold template so I cold generate a new project with these implementations already done. You can
+see the repo here. Basically, this is a quick start to getting a blog set up using Haml, Sass,
+CoffeeScript, and Bower. You can get started with it by cloning the repository:
+</p>
+<pre>$ mkdir -p ~/.middleman/
+$ git clone https://github.com/CodyReichert/middleman-hamlsasscoffeeblog.git ~/.middleman/hamlsasscoffeeblog
+$ middleman init project_name --template=hamlsasscoffeeblog
+$ cd project_name
+$ bundle install && bower install
+$ bundle exec middleman server</pre>
+<ol>
+<li>The first command we run is to create the directory where Middleman looks for template scaffolds.</li>
+<li>Next we clone the repo into our new directory</li>
+<li>Now we initialize a new project. We pass the template flag to use the new scaffold we just installed</li>
+<li>Move into our new project</li>
+<li>We use `bundle install` to install the Gem dependencies, and `bower install` to install the front-end</li>
+dependencies. (By default I use jQuery as an example, it has no dependents so you can keep or remove it)
+6. Run the middleman server
+</ol>
+<p>
+Great! So you now you can navigate your browser to localhost:4567 and check out your new site.
+</p>
+<h3>Configuration Options</h3>
+<p>
+The config.rb file in the root directory of the project is where all the magic happens. Middleman comes with
+some great options out of the box including pretty URL's, build settings, and blog settings. Here's a few cool
+things you can do with your new blog.
+</p>
+<h4>Blog Permalinks</h4>
+<p>
+You can change your permalink very easily, and most of the work is done for you. Look for this line in your config:
+</p>
+<pre># blog permalink with no file extension
+blog.permalink = "{year}/{month}/{day}/{title}"
+# blog permalink with file extension
+blog.permalink = "{year}/{month}/{day}/{title}.html"</pre>
+<p>
+You can set your permalinks using the interpolates variables. There are options for wether you are using file
+extensions or not.
+</p>
+<p>
+This post is a work in progress. And I want to go over some of these topic in more detail. Check back for an
+updated post or shoot me an email.o
+</p>
+<h4>Cody Reichert</h4>
+</p>
+<a><a href="/Creating-blog-in-middleman">Read more...</a></a>
+<hr>
+
+</div>
+</div>
+</div>
+<div class='col-md-9 col-md-offset-3 content'>
+<p style='text-align:right;'>Copyright 2014 - Cody Reichert</p>
+</div>
+<script src='/javascripts/all.js'></script>
+</body>
+</html>
