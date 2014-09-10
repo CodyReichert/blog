@@ -5,17 +5,19 @@ date: 2014-09-08
 tags: getting,started 
 ---
 
+%h4 A static blog using Haml, Sass, Coffee, Bower, and Middleman
 %p
   I've used several static site generators for projects in the past. As a matter
-  of fact, our company website(link) is written with Hakyll, a static site generator
-  written in Haskell. So when it came time to write this blog, I wanted to try something and
-  I had a few requirements:
+  of fact, our <a href="http://reichertbrothers.com">company website</a> is written with 
+  <a href="http://jaspervdj.be/hakyll/">Hakyll,</a> a static site generator
+  written in <a href="http://haskell.org">Haskell.</a> So when it came time to write this blog, 
+  I wanted to try something and I had a few requirements:
   
 .row
   .col-xs-12.col-sm-6.col-md-6
     %ul{ :style => 'padding-top:15px' }
-      %li Easy integration with modern front end tools, like Bower.
-      %li Easy integration with alterntive markups, like Haml.
+      %li Easy integration with modern front end tools, like <a href="http://bower.io">Bower.</a>
+      %li Easy integration with alterntive markups, like <a href="http://haml.info">Haml.</a>
       %li A minimalistic structure approach (don't tell me what to do!)
       %li 
         Good documentation. I didn't want to spend a lot of time learning
@@ -25,14 +27,17 @@ tags: getting,started
           :style => 'border-radius: 4px;margin-bottom:10px;' }
 
 %p
-  The obvious choice was Jekyll, but I didn't really want to go the Ruby route. Well,
-  at least no until I found Middleman. Middleman is a static site generator written in
-  Ruby, and I must say, it has been absolutely pleasant to work with. My main goal
-  during this site's development was to focus more on the front-end code and
+  The obvious choice was <a href="http://jekyllrb.com">Jekyll,</a> but I didn't really want to go the 
+  Ruby route. Well, at least not until I found <a href="http://middlemanapp.com">Middleman</a>. Middleman 
+  is a static site generator written in Ruby, and I must say, it has been absolutely pleasant 
+  to work with. My main goal during this site's development was to focus more on the front-end code and
   toolkits, and Middleman lends itself to that generously.
   %br
   %br
   In this article I'll cover getting a statically generated blog up and running quickly using Middleman.
+  %br
+  %br
+  All of the following commands are run on Ubuntu 14.04, and not tested on any other platforms.
 
 %h3 Installing Middleman
 
@@ -42,29 +47,48 @@ tags: getting,started
 %pre
   $ gem install middleman
 
+%p
+  If you don't have Ruby installed, <a href="http://ruby-lang.org">www.ruby-lang.org</a> has some good 
+  resources to get started.
+
 %h3 Middleman Scaffolds
 
 %p
-  Once you have that installed, there is a pretty nice scaffolding tool to create a new site skeleton.
-  Running the following will get you started with a new Middleman skeleton site with all the default options.
+  Once you have that installed, there is a pretty nice scaffolding tool to generate a new site skeleton.
+  Running the following will get you started with a basic Middleman site skeleton with all the default options.
 %pre
   $ middleman init your_project_name 
   $ bundle install
+  $ cd your_project_name
+  $ bundle install && bower install
+  $ middleman server init
+%p
+  Now navigate your browser to <a href="http://localhost:4567">http://localhost:4567</a> you should see your new
+  middleman site!
+%p
+  If you look at the directory structure we generated, it should be pretty self explainatory. Stylesheets are in in the
+  stylesheets direct, javascript in javascript, etc. All of the configuration options, and there are plenty, reside
+  in <code>config.rb</code>. If you want to get familiar, I recommend just starting to hack on the files. Your default layout is in
+  <code>source/layouts/layout.html.haml</code>. Your homepage is <code>source/index.html.erb</code>.
+%p
+  I highly recommend going through the first couple of pages on Middleman documentation to get familiar with
+  its layouts, configuration settings, and other basics. They're super easy to get, and pretty much all documented.
 
 %h3 A New Middleman Scaffold
 
 %p
-  By default, the middleman layout files are in Erb with CSS and JavaScript. One of my main goals
+  By default, the middleman site files are in Erb with CSS and JavaScript. One of my main goals
   during the site development was to get proficient with new tools. So Erb, CSS, and Javascript
-  were dropped, and Haml, Sass, and CoffeeScript were brought in. I also included Bower to handle
-  front end package management.
+  were dropped (nothing wrong with Erb, but I was intrigued by Haml), and Haml, Sass, and CoffeeScript 
+  were brought in. I also included Bower to handle front end package management.
   %br
   %br
-  When I first got started I created and deleted many different projects, naturally. When I got tired
-  of change the Erb files to Haml, CSS to Sass, JavaScript to CoffeeScript, I decided to create a
-  scaffold template so I cold generate a new project with these implementations already done. You can
-  see the repo here. Basically, this is a quick start to getting a blog set up using Haml, Sass, 
-  CoffeeScript, and Bower. You can get started with it by cloning the repository:
+  When I got tired of replaceing the Erb files to Haml, CSS to Sass, JavaScript to CoffeeScript, I decided to create
+  my own scaffold template so I cold generate a new project with all these implementations already done. You can
+  get the repo here. 
+%p  
+  Basically, it is a quick start scaffold to getting a blog set up using Haml, Sass, 
+  CoffeeScript, and Bower. Here's how to download it and use it:
 
 %pre
   $ mkdir -p ~/.middleman/
@@ -79,15 +103,19 @@ tags: getting,started
   %li Next we clone the repo into our new directory
   %li Now we initialize a new project. We pass the template flag to use the new scaffold we just installed
   %li Move into our new project
-  %li We use `bundle install` to install the Gem dependencies, and `bower install` to install the front-end
-  dependencies. (By default I use jQuery as an example, it has no dependents so you can keep or remove it)
-  6. Run the middleman server
+  %li We use <code>bundle install</code> to install the Gem dependencies, and <code>bower install</code> to install 
+  the front-end dependencies. (By default I use jQuery as an example, it has no dependents so you can keep or remove it)
+  %li Run the middleman server
   
 %p
-  Great! So you now you can navigate your browser to localhost:4567 and check out your new site.
+  Great! So you now you can navigate your browser to <a href="http://localhost:4567">localhost:4567</a> and 
+  check out your new site.
 
 %h3 Configuration Options
-
+%i{ :style => 'color:green' } 
+  This section is still under development. I'll eventually go over all the configuration options I'm use on hamlsasscoffeeblog.
+%br
+%br
 %p
   The config.rb file in the root directory of the project is where all the magic happens. Middleman comes with
   some great options out of the box including pretty URL's, build settings, and blog settings. Here's a few cool
@@ -107,11 +135,8 @@ tags: getting,started
   extensions or not.
 
 %p
-  This post is a work in progress. And I want to go over some of these topic in more detail. Check back for an
-  updated post or shoot me an email.o
-
-%h4 Cody Reichert
-
-
-
+  This post is a work in progress. And I want to go over some of these topic in more detail. That may be in the form
+  of an updated blog, or separate posts, I haven't decided. Either way, check back for an
+  updated post or shoot me an email if you'd like to see something up here!
+%br
 READMORE
