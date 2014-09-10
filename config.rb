@@ -12,7 +12,7 @@ activate :blog do |blog|
   blog.sources = "posts/{year}-{month}-{day}-{title}.html"
 
   #blog permalink with no file extension
-  blog.permalink = "{year}/{month}/{day}/{title}"
+  blog.permalink = "{title}"
   #blog permalink with file extension
   #blog.permalink = "{year}/{month}/{day}/{title}.html"
 
