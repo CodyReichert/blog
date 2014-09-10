@@ -121,5 +121,6 @@ end
 
 activate :deploy do |deploy|
   deploy.method = :git
-
+  deploy.remote = 'git@github.com:CodyReichert/CodyReichert.github.io.git'
+  deploy.remote = 'master'
 end
