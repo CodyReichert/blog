@@ -78,6 +78,8 @@ page "/feed.xml", layout: false
 # Reload the browser automatically whenever files change
 activate :livereload
 
+activate :syntax
+
 # Methods defined in the helpers block are available in templates
 # helpers do
 #   def some_helper
@@ -93,7 +95,7 @@ set :images_dir, 'images'
 
 set :fonts_dir, 'fonts'
 
-set :haml, { :ugly => true, :format => :html5 }
+set :haml, :ugly => true, :format => :html5
 
 #bower-installer assets
 after_configuration do
