@@ -128,5 +128,6 @@ end
 activate :deploy do |deploy|
   deploy.method = :git
   deploy.remote = 'git@github.com:CodyReichert/CodyReichert.github.io.git'
-  deploy.remote = 'master'
+  deploy.branch = 'master'
+  deploy.commit_message = 'new site pushed from middleman-deploy'
 end
