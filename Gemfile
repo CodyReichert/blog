@@ -7,6 +7,7 @@ gem "middleman-blog", "~> 3.5.3"
 gem "nokogiri", "~> 1.6.3"
 gem "middleman-deploy"
 gem "middleman-syntax"
+gem "middleman-disqus"
 gem "middleman-livereload", :github => "middleman/middleman-livereload"
 
 # For feed.xml.builder

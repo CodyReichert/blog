@@ -80,6 +80,10 @@ activate :livereload
 
 activate :syntax
 
+activate :disqus do |d|
+  d.shortname = 'codyreichertblog'
+end
+
 # Methods defined in the helpers block are available in templates
 # helpers do
 #   def some_helper
